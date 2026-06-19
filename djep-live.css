@@ -1,26 +1,68 @@
 @charset "utf-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500&display=swap");
 
 :root {
   /* ============================================================================
-     BRAND COLOR OVERRIDE — change THIS one value to rebrand the whole portal.
-     Default is Abell DJ Company pink (#c1098a).
-     Every brand-tinted element on the site (buttons, links, focus rings, sidebar
-     active states, hover accents, the page-title underline, calendar pills,
-     etc.) is derived from this single color via the color-mix() rules below.
-     If you want fine-grained control, you can override the individual
-     --djep-brand-dark / --djep-brand-soft / --djep-button-bg* variables too.
+     VARA BRAND COLOR OVERRIDES
      ============================================================================ */
-  --djep-brand: #c1098a;
+  
+  /* Primary Brand Signal */
+  --djep-brand: #ADB5A3; /* Sage */
 
-  /* Auto-derived shades. oklch() darkens by reducing lightness while keeping
-     the same hue + chroma, so warm brand colors (orange, yellow, red) stay
-     warm instead of muddying through brown when faded toward black. */
-  --djep-brand-dark: oklch(from var(--djep-brand) calc(l - 0.18) c h);
-  --djep-brand-soft: color-mix(in srgb, var(--djep-brand) 10%, #fff);
-  --djep-nav-active: var(--djep-brand);
+  /* Auto-derived shades for UI states */
+  --djep-brand-dark: #C2C9BA; /* Dusty Sage */
+  --djep-brand-soft: color-mix(in srgb, var(--djep-brand) 10%, #F9F7F4);
+  --djep-nav-active: #35323D; /* Midnight */
 
+  /* Button gradient stops — Vara Gold Gradient */
+  --djep-button-bg-start: #CDAA74; /* Mid Gold */
+  --djep-button-bg-end: #F2D596; /* Bright Gold */
+  --djep-button-bg-hover-start: #B68B43; /* Deep Gold */
+  --djep-button-bg-hover-end: #CDAA74; /* Mid Gold */
+
+  --djep-button-bg: linear-gradient(45deg, var(--djep-button-bg-start) 0%, var(--djep-button-bg-end) 100%);
+  --djep-button-bg-hover: linear-gradient(45deg, var(--djep-button-bg-hover-start) 0%, var(--djep-button-bg-hover-end) 100%);
+  --djep-button-shadow: 0 8px 18px -10px rgba(182, 139, 67, 0.4);
+  --djep-button-shadow-hover: 0 12px 24px -12px rgba(182, 139, 67, 0.6);
+
+  --djep-banner-dark: #35323D; /* Midnight */
+
+  /* ============================================================================
+     Non-brand tokens — typography, surfaces, borders, etc. */
+     
+  --djep-font-family: "Modern Sans", "Inter", "Segoe UI", Arial, sans-serif;
+  --djep-font-heading: "Saol Standard", "Playfair Display", serif;
+  
+  --djep-page-bg: #F9F7F4; /* Blank Canvas */
+  --djep-surface: #FDFCFA; /* Lace */
+  --djep-surface-muted: #E8E4E0; /* Fog Machine */
+  --djep-surface-strong: #E8E4E0; 
+  --djep-border: #E8E4E0; /* Fog Machine */
+  --djep-border-strong: #C2C9BA; /* Dusty Sage */
+  
+  --djep-shadow: 0 14px 34px rgba(53, 50, 61, 0.08); /* Midnight tinted shadow */
+  --djep-shadow-soft: 0 8px 20px rgba(53, 50, 61, 0.06);
+  
+  --djep-text: #414047; /* Slate */
+  --djep-text-muted: #ADB5A3; /* Sage */
+  --djep-heading: #35323D; /* Midnight */
+  
+  --djep-nav-bg: #35323D; /* Midnight */
+  --djep-nav-text: #FDFCFA; /* Lace */
+  
+  --djep-button-border: rgba(255, 255, 255, 0.2);
+  --djep-success: #248a57;
+  --djep-warning-bg: #fff4cf;
+  --djep-warning-text: #664d03;
+  --djep-danger-soft: #fff0f5;
+  --djep-radius-sm: 10px;
+  --djep-radius-md: 16px;
+  --djep-radius-lg: 22px;
+  --djep-content-width: 1240px;
+  --djep-gap: 20px;
+  --djep-button-height: 46px;
+}
   /* Button gradient stops — auto-derived from --djep-brand. If you don't like
      the result on a warm color, override --djep-button-bg-start with any hex
      (e.g. --djep-button-bg-start: #b04400;) to pick the dark side of the
